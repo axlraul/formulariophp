@@ -4,16 +4,15 @@
     <title>Portal Web Planificacion</title>
 </head>
 <body>
-    <p>Gestión: Introduce la planificación recibida en este cuadro:</p>
-    <form action="/guardar-ejecutar.php" method="post">
-        <!-- Utiliza <textarea> para un área de texto más grande -->
-        <textarea id="textoX" name="textoX" rows="30" cols="100" required></textarea>
+    <p> Envío notificaciones APARS-IPL a aplicación: Introduce la planificación recibida en este cuadro:</p>
+    <form action="check-previo-envio.php" method="post">
+        <textarea id="planificacion_introducida" name="planificacion_introducida" rows="30" cols="100" required></textarea>
         <br>
         <label for="opciones">Selecciona una opción:</label>
         <select id="opciones" name="opcion">
-            <option value="APARS SO">APARS SO</option>
-            <option value="APARS APACHE">APARS APACHE</option>
-            <option value="IPL">IPL</option>
+            <option value="A">APARS SO</option>
+            <option value="APACHE">APARS APACHE</option>
+            <option value="I">IPL</option>
         </select>
         <br>
         <input type="submit" value="Guardar y Ejecutar">
