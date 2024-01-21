@@ -1,3 +1,4 @@
+<h1>Resultado envío planificación</h1>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['enviar_planificacion'])) {
     $tipo_planificacion = $_POST['tipo_planificacion'];

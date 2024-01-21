@@ -1,3 +1,5 @@
+<h1>Paso de comprobación</h1>
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $script_validacion_planificacion = '/script1.sh'; 
@@ -17,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<pre>$output_script_1</pre>";  // Utilizando <pre> para conservar el formato del texto
 
             // Adding bottom to redirect to another php file
-            echo '<form action="envio_planificacion.php" method="post">';
+            echo '<form action="resultado.php" method="post">';
             echo '<input type="hidden" name="tipo_planificacion" value="' . htmlspecialchars($tipo_planificacion) . '">';
             echo '<input type="submit" name="enviar_planificacion" value="Enviar planificación">';
             echo '</form>';
@@ -31,4 +33,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo "Acceso no permitido.";
 }
 ?>
-

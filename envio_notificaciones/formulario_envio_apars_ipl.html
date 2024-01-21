@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario envío APARS/IPL</title>
+    <script>
+        function validateForm() {
+            var tipoPlanificacion = document.getElementById("tipo_planificacion").value;
+
+            if (tipoPlanificacion === "") {
+                alert("Por favor, selecciona una opción antes de enviar.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulario envío APARS/IPL</h1>
+    <p>Envío notificaciones APARS-IPL a aplicación: Introduce la planificación recibida en el siguiente cuadro:<br><br></p>
+    <form action="check-previo-envio.php" method="post" onsubmit="return validateForm()">
+        <textarea id="planificacion_introducida" name="planificacion_introducida" rows="30" cols="50" required></textarea>
+        <br>
+        <label for="opciones">Selecciona una opción:</label>
+        <select id="tipo_planificacion" name="tipo_planificacion">
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option value="A">APARS SO</option>
+            <option value="APACHE">APARS APACHE</option>
+            <option value="I">IPL</option>
+        </select>
+        <br><br><br>
+        <input type="submit" value="Guardar y Ejecutar">
+    </form>
+</body>
+</html>
+
