@@ -1,22 +1,22 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $script_validacion_planificacion = '/script1.sh';  // Elimina el punto y coma al final de esta línea
+    $script_validacion_planificacion = '/script1.sh'; 
     $planificacion_introducida = $_POST['planificacion_introducida'];
     $tipo_planificacion = $_POST['tipo_planificacion'];
-    $archivo = '/contenido.txt';  // Ajusta el nombre de la variable y utiliza la ruta correcta
+    $archivo = '/contenido.txt';  
 
-    // Verificar si el archivo es escribible
+    // check if file $archivo is writable
     if (is_writable($archivo)) {
-        // Guardar el contenido y la opción en el archivo
-        $contenido = "Texto X: $planificacion_introducida\nOpción: $tipo_planificacion";
+        // save content to a file and tipo_planificacio
+#       $contenido = "$planificacion_introducida\nOpción: $tipo_planificacion";
+       $contenido = "$planificacion_introducida";
         if (file_put_contents($archivo, $contenido) !== false) {
-            // Ejecutar el script de Bash con la opcion como argumento
             $output_script_1 = shell_exec("$script_validacion_planificacion $tipo_planificacion 2>&1");
 
-            echo "Resultado comprobación previa planificación:<br>";
+            echo "Resultado comprobación previo envío planificación:<br>";
             echo "<pre>$output_script_1</pre>";  // Utilizando <pre> para conservar el formato del texto
 
-            // Agregar el botón "Enviar planificación" con redirección a otro php
+            // Adding bottom to redirect to another php file
             echo '<form action="envio_planificacion.php" method="post">';
             echo '<input type="hidden" name="tipo_planificacion" value="' . htmlspecialchars($tipo_planificacion) . '">';
             echo '<input type="submit" name="enviar_planificacion" value="Enviar planificación">';
